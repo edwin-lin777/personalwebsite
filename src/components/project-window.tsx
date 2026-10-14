@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { ProjectPreview } from "./project-preview";
 import { projects } from "@/data/projects";
 
 type Collection = "projects" | "hackathons";
@@ -50,10 +50,7 @@ export function ProjectWindow() {
         if (event.target === event.currentTarget && (event.key === "ArrowLeft" || event.key === "ArrowRight")) { event.preventDefault(); scroll(event.key === "ArrowLeft" ? -1 : 1); }
       }}>
         {items.map((project, index) => <Link href={`/projects/${project.slug}`} className="work-card" key={project.slug}>
-          <div className="work-image">
-            {project.images[0] ? <Image src={project.images[0].src} alt={project.images[0].alt} fill sizes="(max-width: 640px) 80vw, 380px" /> : <div className="desk-rewards-art"><span>Go / Canadian rewards</span><strong>More out<br />of everyday.</strong><span>rates + caps + wallets</span></div>}
-            {project.recordingUrl && <span className="work-recording">Demo recording</span>}
-          </div>
+          <div className="work-image"><ProjectPreview project={project} /></div>
           <div className="work-card-heading"><span className="work-number">0{index + 1}</span><h2>{project.category === "Personal project" ? project.title : project.category}</h2><span aria-hidden="true">↗</span></div>
           <p>{project.summary}</p>
           <div className="work-meta">

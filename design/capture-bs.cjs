@@ -1,0 +1,10 @@
+﻿const fs=require('fs');
+(async()=>{const pages=await(await fetch('http://localhost:9228/json')).json();const ws=new WebSocket(pages.find(p=>p.type==='page').webSocketDebuggerUrl);await new Promise(r=>ws.onopen=r);let id=0;const pending=new Map();ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.id){pending.get(m.id)?.(m.result);pending.delete(m.id)}};const send=(method,params={})=>new Promise(r=>{pending.set(++id,r);ws.send(JSON.stringify({id,method,params}))});const pause=()=>new Promise(r=>setTimeout(r,1400));const ev=async expression=>(await send('Runtime.evaluate',{expression,returnByValue:true})).result?.value;
+await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false});
+await send('Page.navigate',{url:'https://bs-liquidity.com/positioncalculuator'});await new Promise(r=>setTimeout(r,3500));
+await ev(`(()=>{const sample={risk:1,accountSize:10000,entry:20000,stopLoss:19950,takeProfit:20100};for(const [name,value] of Object.entries(sample)){const el=document.querySelector('input[name='+name+']');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(el,String(value));el.dispatchEvent(new Event('input',{bubbles:true}));el.dispatchEvent(new Event('change',{bubbles:true}));}document.querySelector('button[type=submit]').click();})()`);await pause();
+console.log(await ev('document.body.innerText'));
+let shot=await send('Page.captureScreenshot',{format:'png'});fs.writeFileSync('public/projects/bs-liquidity-calculator.png',Buffer.from(shot.data,'base64'));
+await send('Page.navigate',{url:'https://bs-liquidity.com/'});await new Promise(r=>setTimeout(r,6500));
+shot=await send('Page.captureScreenshot',{format:'png'});fs.writeFileSync('public/projects/bs-liquidity-markets.png',Buffer.from(shot.data,'base64'));
+ws.close()})();

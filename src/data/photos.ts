@@ -5,6 +5,7 @@ export type Photo = {
   alt: string;
   collection: "Japan & China" | "Hikes with friends" | "With friends";
   crop: { x: number; y: number; width: number; height: number };
+  sampleExposure?: { aperture: string; shutter: string; iso: number };
 };
 
 // Original supplied collage sheets, framed in CSS without changing the source files.
@@ -30,6 +31,17 @@ export const photos: Photo[] = [
   frame("mirror", 4, "Everyone in the frame", "A group of friends posing together for a mirror photograph", "With friends", 845, 777, 994, 662),
   frame("picnic", 5, "A break on the trail", "Friends resting around a picnic table in the forest", "With friends", 1142, 1099, 736, 434),
 ];
+
+// Illustrative settings requested by Edwin; these are not extracted EXIF.
+const sampleExposures: Record<string, NonNullable<Photo["sampleExposure"]>> = {
+  train: { aperture: "f/2", shutter: "1/125 s", iso: 1600 },
+  tower: { aperture: "f/4", shutter: "1/125 s", iso: 800 },
+  car: { aperture: "f/2", shutter: "1/60 s", iso: 1600 },
+  trails: { aperture: "f/8", shutter: "4 s", iso: 125 },
+  railway: { aperture: "f/5.6", shutter: "1/250 s", iso: 400 },
+  waterside: { aperture: "f/2.8", shutter: "1/500 s", iso: 125 },
+};
+for (const photo of photos) photo.sampleExposure = sampleExposures[photo.id];
 
 export const photoCollections = ["Japan & China", "Hikes with friends", "With friends"] as const;
 export const featuredPhoto = photos.find(photo => photo.id === "shore")!;

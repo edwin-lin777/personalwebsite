@@ -79,3 +79,13 @@ External Dropbox/GitHub destinations are the supplied URLs. No app has been depl
 2026-10-13 cursor-responsive ASCII: typecheck/build passed. Browser verified 7,524 idle glyphs with zero transforms, local hover moving 783 glyphs, return to zero after leaving, zero movement over project controls and under reduced motion, and static mobile fallback. Desktop/mobile screenshots reviewed with no horizontal overflow. Removed continuous animation and pause control.
 
 2026-10-13 hover coverage/gallery labels: typecheck/build passed. Browser measured 779 displaced glyphs below Spotify and 476 over the photo card; clicking the photo card still navigates correctly. Confirmed requested section headings and unchanged group sizes 7/5/3. Desktop hover and mobile gallery screenshots reviewed; no horizontal overflow.
+
+2026-10-13 BS Liquidity/project imagery: typecheck and production build passed, generating the new /projects/bs-liquidity route. Reviewed all five cards at 1440px/390px and BS Liquidity/Steel Imports detail previews. Browser verified three projects/two hackathons, both tabs, all five detail routes, gallery selection controls, correct live/recording/code destinations, and no horizontal overflow. Initial preview server was unavailable; restarted locally and repeated the checks successfully.
+
+- 2026-10-13 photo print frames: npm run typecheck and npm run build passed. Chrome previews at 1440 and 390px verified 15 frames, 6 labeled sample settings strips, no horizontal or dialog overflow, next-photo navigation and Escape dismissal. Screenshots: design/prints-1440.png, prints-390.png and corresponding lightbox captures.
+
+- 2026-10-13 favicon: typecheck and production build passed. Confirmed generated HTML includes SVG, ICO, and Apple touch icon links. Inspected raster output and Chrome SVG rendering (design/favicon-browser.png).
+
+- 2026-10-13 project rename: npm run typecheck and npm run build passed.
+
+- 2026-10-13 cleanup: typecheck/build passed; desktop/mobile Chrome checks confirm 15 framed photos, no sample-label elements, no overflow, working next/Escape controls. Inspected simplified icon output.

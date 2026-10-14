@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <title>Credit Card Rewards Simulator workflow illustration</title>
+  <rect width="1200" height="720" fill="#152a31"/>
+  <g fill="none" stroke="#30444b"><path d="M0 120H1200M0 240H1200M0 360H1200M0 480H1200M0 600H1200M120 0V720M360 0V720M600 0V720M840 0V720M1080 0V720"/></g>
+  <g font-family="Arial,Helvetica,sans-serif">
+    <text x="64" y="79" fill="#a8c2c7" font-size="20" letter-spacing="3">MONTE CARLO SIMULATION</text>
+    <text x="64" y="155" fill="#f3f7f7" font-size="46" font-weight="600">From spending to wallet comparisons.</text>
+    <g transform="translate(70 240)">
+      <rect width="280" height="245" rx="16" fill="#f0f3ef"/>
+      <g fill="#4f7979"><rect x="30" y="103" width="32" height="82" rx="4"/><rect x="76" y="70" width="32" height="115" rx="4"/><rect x="122" y="116" width="32" height="69" rx="4"/><rect x="168" y="48" width="32" height="137" rx="4"/><rect x="214" y="87" width="32" height="98" rx="4"/></g>
+      <text x="30" y="218" fill="#24464b" font-size="19">Household spending</text>
+    </g>
+    <g stroke="#a2c8c9" stroke-width="3" fill="none"><path d="M370 360H420m-12-10 12 10-12 10M790 360H840m-12-10 12 10-12 10"/></g>
+    <g transform="translate(440 240)">
+      <rect width="330" height="245" rx="16" fill="#25424a" stroke="#5d7f83"/>
+      <rect x="35" y="28" width="220" height="121" rx="12" fill="#829c9e" transform="rotate(-7 145 90)"/>
+      <rect x="61" y="53" width="225" height="122" rx="12" fill="#c6d7cf"/>
+      <rect x="80" y="76" width="31" height="24" rx="5" fill="#8fa9a1"/>
+      <path d="M80 143H139M154 143H213" stroke="#6a8880" stroke-width="5"/>
+      <text x="35" y="218" fill="#e5edeb" font-size="19">Rates · caps · annual fees</text>
+    </g>
+    <g transform="translate(860 240)">
+      <rect width="270" height="245" rx="16" fill="#f0f3ef"/>
+      <g fill="#577a72"><rect x="28" y="44" width="206" height="23" rx="4"/><rect x="28" y="85" width="159" height="23" rx="4"/><rect x="28" y="126" width="112" height="23" rx="4"/></g>
+      <text x="28" y="218" fill="#24464b" font-size="19">Wallet comparisons</text>
+    </g>
+    <text x="70" y="580" fill="#f3f7f7" font-size="36" font-weight="600">50,000</text><text x="70" y="614" fill="#adc4c6" font-size="20">synthetic households</text>
+    <text x="440" y="580" fill="#f3f7f7" font-size="36" font-weight="600">286</text><text x="440" y="614" fill="#adc4c6" font-size="20">wallet combinations</text>
+    <text x="860" y="580" fill="#f3f7f7" font-size="36" font-weight="600">Go + Docker</text><text x="860" y="614" fill="#adc4c6" font-size="20">concurrent simulation</text>
+    <text x="70" y="682" fill="#8faeb2" font-size="15">WORKFLOW ILLUSTRATION</text>
+  </g>
+</svg>

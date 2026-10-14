@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import { ProjectScreenshot } from "./project-screenshot";
 import type { ProjectImage } from "@/data/projects";
 
 export function ProjectGallery({ images }: { images: ProjectImage[] }) {
@@ -12,10 +12,10 @@ export function ProjectGallery({ images }: { images: ProjectImage[] }) {
   const image = images[active];
   return (
     <figure className="project-gallery">
-      <div className="gallery-image"><Image key={image.src} src={image.src} alt={image.alt} fill sizes="(max-width: 700px) 94vw, 1080px" priority /></div>
+      <div className="gallery-image"><ProjectScreenshot key={image.src} image={image} /></div>
       <figcaption>
         {images.length > 1 ? <div className="image-options" aria-label="Project screenshots">{images.map((item, index) => <button key={item.src} type="button" onClick={() => setActive(index)} aria-pressed={index === active}>{item.label}</button>)}</div> : <span>{image.label}</span>}
-        <span className="gallery-note">{images.length > 1 ? "Screenshot previews" : "Demo recording preview"}</span>
+        <span className="gallery-note">{image.kind === "recording" ? "Demo recording still" : image.kind === "illustration" ? "Workflow illustration" : "Screenshot preview"}</span>
       </figcaption>
     </figure>
   );
