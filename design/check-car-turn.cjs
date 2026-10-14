@@ -1,0 +1,5 @@
+﻿const fs=require('fs');
+(async()=>{const pages=await(await fetch('http://localhost:9228/json')).json();const ws=new WebSocket(pages.find(p=>p.type==='page').webSocketDebuggerUrl);await new Promise(r=>ws.onopen=r);let id=0;const pending=new Map();ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.id){pending.get(m.id)?.(m.result);pending.delete(m.id)}};const send=(method,params={})=>new Promise(r=>{pending.set(++id,r);ws.send(JSON.stringify({id,method,params}))});const pause=()=>new Promise(r=>setTimeout(r,1400));const ev=async expression=>(await send('Runtime.evaluate',{expression,returnByValue:true})).result?.value;
+await send('Page.navigate',{url:'http://localhost:3000'}); await pause();
+console.log('Full-turn checkpoints', await ev(`(()=>{const el=document.querySelector('.car-backdrop');const animation=el.getAnimations()[0];animation.pause();const samples=[0,6000,12000,18000,24000].map(time=>{animation.currentTime=time;const m=new DOMMatrix(getComputedStyle(el).transform);return {time,x:Math.round(m.m11),depth:Math.round(m.m13),vertical:m.m42};});animation.play();return samples;})()`));
+ws.close()})();
