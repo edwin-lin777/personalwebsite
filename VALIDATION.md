@@ -89,3 +89,5 @@ External Dropbox/GitHub destinations are the supplied URLs. No app has been depl
 - 2026-10-13 project rename: npm run typecheck and npm run build passed.
 
 - 2026-10-13 cleanup: typecheck/build passed; desktop/mobile Chrome checks confirm 15 framed photos, no sample-label elements, no overflow, working next/Escape controls. Inspected simplified icon output.
+
+- 2026-10-13 circular favicon: typecheck/build passed; Chrome visual preview at 16/32/64px verified E. on a black circle.

@@ -126,3 +126,5 @@ This is a local source handoff. No GitHub remote, public website, deployment, or
 - 2026-10-13 project naming: renamed BS Liquidity to Index CFD Position Calculator across portfolio titles and descriptive copy. Existing route and external deployment URL retained.
 
 - 2026-10-13 cleanup: removed visible Sample settings labels at Edwin's request; exposure values remain decorative and identified as samples in data/accessibility text. Simplified favicon to a single geometric white E on charcoal, removing serif details and dot; regenerated ICO and Apple icon.
+
+- 2026-10-13 favicon refinement: pure black circular background with white geometric E and period; transparent corners. Regenerated ICO and Apple versions.
