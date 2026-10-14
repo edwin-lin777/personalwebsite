@@ -8,7 +8,7 @@ import { projects } from "@/data/projects";
 type Collection = "projects" | "hackathons";
 
 export function ProjectWindow() {
-  const [collection, setCollection] = useState<Collection>("projects");
+  const [collection, setCollection] = useState<Collection>("hackathons");
   const [edges, setEdges] = useState({ start: true, end: false });
   const rail = useRef<HTMLDivElement>(null);
   const items = projects.filter(project => collection === "projects" ? project.category === "Personal project" : project.category !== "Personal project");
@@ -35,10 +35,10 @@ export function ProjectWindow() {
     <section className="work-window" aria-label="Selected work">
       <div className="work-window-title">
         <div className="work-tabs" role="tablist" aria-label="Work collection">
-          {(["projects", "hackathons"] as const).map(value => <button key={value} id={`${value}-tab`} type="button" role="tab" aria-selected={collection === value} aria-controls="work-panel" tabIndex={collection === value ? 0 : -1} onClick={() => setCollection(value)} onKeyDown={event => {
+          {(["hackathons", "projects"] as const).map(value => <button key={value} id={`${value}-tab`} type="button" role="tab" aria-selected={collection === value} aria-controls="work-panel" tabIndex={collection === value ? 0 : -1} onClick={() => setCollection(value)} onKeyDown={event => {
             if (["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
               event.preventDefault();
-              const next = event.key === "Home" ? "projects" : event.key === "End" ? "hackathons" : value === "projects" ? "hackathons" : "projects";
+              const next = event.key === "Home" ? "hackathons" : event.key === "End" ? "projects" : value === "projects" ? "hackathons" : "projects";
               setCollection(next);
               document.getElementById(`${next}-tab`)?.focus();
             }
@@ -50,7 +50,9 @@ export function ProjectWindow() {
         if (event.target === event.currentTarget && (event.key === "ArrowLeft" || event.key === "ArrowRight")) { event.preventDefault(); scroll(event.key === "ArrowLeft" ? -1 : 1); }
       }}>
         {items.map((project, index) => <Link href={`/projects/${project.slug}`} className="work-card" key={project.slug}>
-          <div className="work-image"><ProjectPreview project={project} /></div>
+          <div className="work-image">
+            <ProjectPreview project={project} />
+          </div>
           <div className="work-card-heading"><span className="work-number">0{index + 1}</span><h2>{project.category === "Personal project" ? project.title : project.category}</h2><span aria-hidden="true">↗</span></div>
           <p>{project.summary}</p>
           <div className="work-meta">

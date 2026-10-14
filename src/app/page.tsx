@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import { PhotoFrame } from "@/components/photo-frame";
 import { featuredPhoto } from "@/data/photos";
+import { photography } from "@/data/photography";
 import { MusicWidget } from "@/components/music-widget";
 import { ProjectWindow } from "@/components/project-window";
 import { CarBackground } from "@/components/car-background";
@@ -24,7 +25,10 @@ export default function Home() {
           <PhotoFrame photo={featuredPhoto} />
           <span className="home-photo-caption"><span>Photography</span><span aria-hidden="true">&#8599;</span></span>
         </Link>
-        <div className="desk-margin-note"><span className="handwritten">Away from the keyboard.</span><p>A camera, some friends,<br />and the occasional trail.</p></div>
+        <div className="desk-margin-note">
+          <span className="handwritten">{photography.note}</span>
+          <p>{photography.cameraHistory}</p>
+        </div>
       </aside>
       <CarBackground />
     </main>

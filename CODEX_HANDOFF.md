@@ -128,3 +128,27 @@ This is a local source handoff. No GitHub remote, public website, deployment, or
 - 2026-10-13 cleanup: removed visible Sample settings labels at Edwin's request; exposure values remain decorative and identified as samples in data/accessibility text. Simplified favicon to a single geometric white E on charcoal, removing serif details and dot; regenerated ICO and Apple icon.
 
 - 2026-10-13 favicon refinement: pure black circular background with white geometric E and period; transparent corners. Regenerated ICO and Apple versions.
+
+- 2026-10-14: Removed the homepage Away from the keyboard note and Vancouver roots / Waterloo days footer slogan at Edwin's request. Refined the black circular E. favicon with a larger custom serif letter and regenerated ICO/Apple assets. Typecheck and build passed; browser preview could not connect to headless Chrome.
+
+- 2026-10-14: Added Edwin's supplied photography history beneath the homepage photo card: Taking photos since I was 15. / Canon R10, now Fujifilm X100VI. Copy lives in src/data/photography.ts and reuses the existing note styling. Typecheck and build passed.
+
+- 2026-10-14 favicon revision: replaced the serif E. with a clean geometric EL monogram inside the existing black circle. Regenerated ICO and Apple assets and visually reviewed 16/32/64px raster previews in design/favicon-sizes.png. Typecheck and production build passed.
+
+- 2026-10-14 favicon direction: Edwin rejected initials and invited a different symbol. Replaced EL with an original white outline camera and lens inside the black circle, referencing his photography. Regenerated all icon formats, inspected 16/32/64px previews, and passed typecheck/build.
+
+- 2026-10-14 favicon direction: Edwin rejected the camera. Replaced it with an abstract tilted elliptical orbit and central dot in white on the black circle. Updated SVG, ICO, and Apple icon; inspected 16/32/64px previews. Typecheck and build passed.
+
+- 2026-10-14: Hackathons now precedes Projects and is the default homepage collection; keyboard Home/End follow the new order. Added user-supplied placement badges from src/data/projects.ts: MIT Energy and Climate Hacks - Semi-finalists; Hack the Globe - 3rd.
+
+- 2026-10-14 photo favicon: Edwin supplied a childhood photograph and requested a face crop. Built-in image editor produced a face-and-blue-hat crop (AI-processed, not a pixel-exact original crop), saved in design/favicon-face-source.png. Replaced icon.svg with icon.png and regenerated ICO/Apple icons. ICO generation now ensures RGBA for Next's decoder. Reviewed 16/32/64px previews; typecheck/build passed.
+
+- 2026-10-14 placement emphasis: moved Semi-finalists and 3rd from card metadata onto the top-left of their preview images, below the Route map / Recording still bar. Larger bold text and pale-gold badges improve visibility. Typecheck and build passed; browser preview remains unavailable.
+
+- 2026-10-14 placement correction: placement text now replaces Route map / Energy benefits in the preview header itself: Semi-finalists and 3rd place. Removed the image overlay badges; Recording still remains on the right. Typecheck and build passed.
+
+- 2026-10-14 Pooh favicon: used Edwin's Downloads/download (1).jpg in full, resized proportionally with white padding and no cropping or AI edits. Original copied to design/favicon-pooh-source.jpg; updated icon.png, favicon.ico, and apple-icon.png. Inspected small-size previews; typecheck and build passed.
+
+- 2026-10-14 Pooh crop: Edwin requested a tighter crop after the full-image version. Favicon generator now extracts a 72px square at (44,0) from the supplied JPG, focusing on Pooh's face and ears without AI edits. Source stays intact; all icon formats regenerated, small-size previews checked, typecheck/build passed.
+
+- 2026-10-14: Undid the tight Pooh crop at Edwin's request. Restored the full supplied artwork, proportionally fitted with white padding, across all favicon formats.

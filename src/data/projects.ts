@@ -9,6 +9,7 @@ export type Project = {
   title: string;
   subtitle: string;
   category: string;
+  placement?: string;
   summary: string;
   description: string;
   contribution: string;
@@ -63,6 +64,7 @@ export const projects: Project[] = [
   {
     slug: "steel-imports", title: "Steel Imports", subtitle: "Emissions vs. Shipping Cost Optimizer",
     category: "MIT Energy and Climate Hacks", summary: "Shipping cost meets carbon cost.",
+    placement: "Semi-finalists",
     description: "A full-stack app for Array Technologies that compares the CO₂ emissions and shipping costs of HRC steel imports. Built with Team Diluted at the MIT Energy and Climate Hack.",
     contribution: "I built the Next.js frontend and interactive dashboards, and connected them to our Python backend through FastAPI.",
     stack: ["Next.js", "Python", "FastAPI"],
@@ -76,6 +78,7 @@ export const projects: Project[] = [
   {
     slug: "navis", title: "Navi$", subtitle: "Energy subsidy matching",
     category: "Hack the Globe", summary: "Energy support, easier to find.",
+    placement: "3rd place",
     description: "A platform that matches households with energy subsidies through rules-based eligibility and a dashboard that makes next steps clear. Our team placed third out of 50 teams at Hack the Globe.",
     contribution: "The project combines an eligibility questionnaire with a dashboard of relevant programs, estimated savings, and application steps.",
     stack: ["Next.js"],

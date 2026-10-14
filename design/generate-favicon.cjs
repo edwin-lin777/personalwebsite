@@ -1,13 +1,13 @@
-// Keep the browser fallback and Apple icon in sync with the vector master.
+// Keep the browser fallback and Apple icon in sync with the photo icon.
 const fs = require('node:fs');
 const path = require('node:path');
 const sharp = require('sharp');
 const root = path.resolve(__dirname, '..');
-const source = path.join(root, 'src/app/icon.svg');
+const source = path.join(root, 'src/app/icon.png');
 
 (async () => {
   const sizes = [16, 32, 48];
-  const images = await Promise.all(sizes.map(size => sharp(source).resize(size, size).png().toBuffer()));
+  const images = await Promise.all(sizes.map(size => sharp(source).resize(size, size).ensureAlpha().png().toBuffer()));
   const header = Buffer.alloc(6 + sizes.length * 16);
   header.writeUInt16LE(1, 2);
   header.writeUInt16LE(sizes.length, 4);
